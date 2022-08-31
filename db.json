@@ -1,0 +1,38 @@
+{
+  "posts": [
+    {
+      "id": "124",
+      "name": "Omkar Mukkawar",
+      "email": "omkar@gmail.com",
+      "address": "karvenagar Pune",
+      "dropdown": {
+        "name": "Pune",
+        "code": "PUN"
+      }
+    },
+    {
+      "id": "23",
+      "name": "Nikita Joshi",
+      "email": "nikita@gmail.com",
+      "address": "Decan Pune",
+      "dropdown": {
+        "name": "Pune",
+        "code": "PUN"
+      }
+    },
+    {
+      "id": "56",
+      "name": "Shreya arole",
+      "email": "Shreya@gmail.com",
+      "address": "Faridabad",
+      "dropdown": {
+        "name": "Pune",
+        "code": "PUN"
+      }
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

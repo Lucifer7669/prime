@@ -1,0 +1,176 @@
+<app-header></app-header>
+
+
+<p-dialog header="Submit Your Information" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}"
+   [baseZIndex]="10000" [draggable]="false" [resizable]="false">
+   <div class="container">
+      <form [formGroup]='userform'>
+         <br>
+         <div class="p-fluid p-grid">
+            <div class="p-field p-col-12 p-md-4">
+               <span class="p-float-label">
+                  <input type="text" id="inputtext" name="id" formControlName="id" pInputText />
+                  <label for="inputtext">Enter Your ID</label>
+               </span>
+            </div>
+            <br>
+            <div class="p-field p-col-12 p-md-4">
+               <span class="p-float-label">
+                  <input type="text" id="inputtext" name="name" formControlName="name" pInputText />
+                  <label for="inputtext">Enter Your Name:</label>
+               </span>
+            </div>
+            <br>
+            <div class="p-field p-col-12 p-md-4">
+               <span class="p-float-label">
+                  <input type="text" id="inputtext" name="email" formControlName="email" pInputText />
+                  <label for="inputtext">Enter Your Email Address:</label>
+               </span>
+            </div>
+            <br>
+            <div class="p-field p-col-12">
+               <span class="p-float-label">
+                  <textarea inputId="textarea" rows="3" cols="30" name="address" formControlName="address"
+                     pInputTextarea></textarea>
+                  <label for="textarea">Enter Your Detail Address:</label>
+               </span>
+            </div>
+            <br>
+            <div class="p-field p-col-12 p-md-4">
+               <span class="p-float-label">
+                  <p-dropdown [autoDisplayFirst]="false" formControlName="dropdown" [options]="cities"
+                     optionLabel="name">
+                  </p-dropdown>
+                  <label for="dropdown">Add City</label>
+               </span>
+            </div>
+            <br>
+         </div>
+         <button style="text-align: center;" pButton type="button" class="p-button-raised p-button-rounded"
+            (click)="postData()">Submit</button>
+         <button style="text-align: center;" pButton type="button" class="p-button-raised p-button-rounded"
+            (click)="updateData()">Update</button>
+      </form>
+   </div>
+</p-dialog>
+
+<br><br><br>
+
+<div class="card-section">
+   <p-card header="PrimNg Table" subheader="Stack PrimeNg Table" [style]="{width: '460px'} " styleClass="p-card-shadow">
+      <p>DataTable requires a collection to display along with column components for the representation of the data.
+         p-table
+         is an actual component from primeng that provides data table functionality. Html table has caption , header and
+         body . Primeng also provides caption , header , and body templates. Defined templates for header and body
+         templates, templates are used to define the content of these sections.
+      </p>
+      <ng-template pTemplate="footer">
+         <button pButton pRipple type=button label="View Table" (click)="showTableModal()"
+            class="p-button-raised p-button-plain p-button-text p-button-sm"></button>
+      </ng-template>
+
+   </p-card>
+   <!-- &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; -->
+   <p-card header="Sorting and Filter Table" subheader="Resize and Rearrange Table" [style]="{width:'460px'}"
+      styleClass="p-card-shadow">
+      <p>Select a cell in the column you want to sort (a column with numbers). Click the Sort & Filter command in the
+         Editing group on the Home tab. Select From Smallest to Largest. Now the information is organized from the
+         smallest to largest amount. The sorting tool allows you to sort by date, number, alphabetic order and more. In
+         the following example, we will explore the usage of sorting and filtering and show some advanced sorting
+         techniques.
+      </p>
+      <ng-template pTemplate="footer">
+         <button pButton pRipple type=button label="Go To Dashboard" (click)="showDashboardModal()"
+            class="p-button-raised p-button-plain p-button-text p-button-sm"></button>
+      </ng-template>
+   </p-card>
+</div>
+
+<p-dialog header="Submit Your Information" [(visible)]="displayTableModal" [modal]="true" [style]="{width: '450vw'}"
+   [baseZIndex]="10000" [draggable]="false" [resizable]="true">
+   <p-table [value]="products" #table responsiveLayout="stack">
+      <ng-template pTemplate="header">
+         <tr>
+            <th pReorderableColumn pResizableColumn pSortableColumn="id">Id <p-sortIcon field="id">
+               </p-sortIcon>
+            </th>
+            <th pReorderableColumn pResizableColumn pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon>
+            </th>
+            <th pReorderableColumn pResizableColumn pSortableColumn="email">Email <p-sortIcon field="email">
+               </p-sortIcon>
+            </th>
+            <th pReorderableColumn pResizableColumn pSortableColumn="address">Address <p-sortIcon field="address">
+               </p-sortIcon>
+            </th>
+            <th pReorderableColumn pResizableColumn pSortableColumn="dropdown">City <p-sortIcon field="dropdown">
+               </p-sortIcon>
+            </th>
+            <th>
+               Action
+            </th>
+         </tr>
+         <tr>
+            <th pReorderableColumn pResizableColumn>
+               <input pInputText type="text" (input)="table.filter($event.target.value, 'id', 'contains')"
+                  [value]="table.filters['id']?.value" placeholder="Search by Id" class="p-column-filter">
+            </th>
+            <th pReorderableColumn pResizableColumn>
+               <input pInputText type="text" (input)="table.filter($event.target.value, 'name', 'contains')"
+                  [value]="table.filters['name']?.value" placeholder="Search by Name" class="p-column-filter">
+            </th>
+            <th pReorderableColumn pResizableColumn>
+               <input pInputText type="text" (input)="table.filter($event.target.value, 'email', 'contains')"
+                  [value]="table.filters['email']?.value" placeholder="Search by Email" class="p-column-filter">
+            </th>
+            <th pReorderableColumn pResizableColumn>
+               <input pInputText type="text" (input)="table.filter($event.target.value, 'address', 'contains')"
+                  [value]="table.filters['address']?.value" placeholder="Search by Address" class="p-column-filter">
+            </th>
+            <th pReorderableColumn pResizableColumn>
+               <input pInputText type="text" (input)="table.filter($event.target.value, 'dropdown', 'contains')"
+                  [value]="table.filters['dropdown']?.value" placeholder="Search by City" class="p-column-filter">
+            </th>
+            <th pReorderableColumn pResizableColumn>
+               <button pButton pRipple (click)="showModalDialog()" type="button" label="ADD"
+                  class="p-button-raised p-button-success p-button-text p-button-sm"></button>
+            </th>
+         </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-list let-index="rowIndex">
+         <tr [pSelectableRow]="list" [pReorderableRow]="index">
+            <td>
+               <span class="p-column-title" pReorderableRowHandle>Id</span>
+               <span class="image-text" pReorderableRowHandle disabled>{{list.id}}</span>
+            </td>
+            <td>
+               <span class="p-column-title" pReorderableRowHandle>Name</span>
+               <span class="image-text" pReorderableRowHandle>{{list.name}}</span>
+            </td>
+            <td>
+               <span class="p-column-title" pReorderableRowHandle>Email</span>
+               <span class="image-text" pReorderableRowHandle>{{list.email}}</span>
+            </td>
+            <td>
+               <span class="p-column-title" pReorderableRowHandle>Address</span>
+               <span class="image-text" pReorderableRowHandle>{{list.address}}</span>
+            </td>
+            <td>
+               <span class="p-column-title" pReorderableRowHandle>City</span>
+               <span class="image-text" pReorderableRowHandle>{{list.dropdown.name}}</span>
+            </td>
+            <td>
+               <button pButton pRipple type="button" (click)="editData(list)" label="Edit"
+                  class="p-button-raised p-button-text p-button-plain p-button-sm"></button>
+
+               <button pButton pRipple type="button" (click)="deleteData(list)" label="Delete"
+                  class="p-button-raised p-button-danger p-button-text p-button-sm"></button>
+            </td>
+         </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+         <tr>
+            <td colspan="4">No customers found.</td>
+         </tr>
+      </ng-template>
+   </p-table>
+</p-dialog>

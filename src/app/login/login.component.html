@@ -1,0 +1,144 @@
+<!--Login form starts here-->
+<div class="section" data-aos="zoom-in" data-aos-delay="500" data-aos-offset="200px" data-aos-easing="ease-in"
+   *ngIf="show.loginComponent">
+
+   <p-image src="/assets/sFQnJ.jpg" alt="Image" width="690" [preview]="true"></p-image>
+
+   <div class="login-wrap">
+
+      <div class="icon" style="padding-top: 9px;">
+         <span class="fa fa-user-o"></span>
+      </div>
+      <h3 class="text-center mb-4">Have an account?</h3>
+      <br><br>
+      <div class="btn-section">
+
+         <button (click)="signIn()" pButton type="button" label="Sign In" class="p-button-rounded">
+         </button>
+         &nbsp;&nbsp;
+         <button (click)="signUp()" pButton type="button" label="Sign Up" class="p-button-rounded">
+         </button>
+      </div>
+      <br><br>
+      <!--form section-->
+      <form [formGroup]="accountForm">
+         <div class="p-fluid p-grid">
+            <div class="p-fluid p-grid">
+               <div class="p-field p-col-12 p-md-4">
+                  <span class="p-float-label">
+                     <i class="pi pi-user" style="font-size: 13px; font-weight: 700; color: #8d448b;"></i>
+                     &nbsp;
+                     <input autofocus="true" autocomplete="off" class="p-inputtext-sm" placeholder="Username"
+                        type="text" id="inputtext" pInputText formControlName="username" />
+                  </span>
+               </div>
+            </div>
+            <br><br>
+            <div class="p-fluid p-grid">
+               <div class="p-field p-col-12 p-md-4">
+                  <span class="p-float-label">
+                     <i class="pi pi-lock" style="font-size: 13px; color: #8d448b; font-weight: 700;"></i>
+                     &nbsp;
+                     <input autofocus autocomplete="off" class="p-inputtext-sm" placeholder="Password" type="pass"
+                        id="inputtext" pInputText formControlName="pass" />
+
+                  </span>
+               </div>
+            </div>
+         </div>
+         <br><br>
+         <div class="p-field p-col-12 p-md-4">
+            <span class="p-float-label">
+               <a class="hyperLink" href="/forgetpassword">Forget Password</a>
+            </span>
+         </div>
+         <br><br>
+         <!--Button section-->
+         <div class="btn">
+            <button (click)="signIn()" pButton type="button" label="Sign In"
+               [disabled]="accountForm && !accountForm.valid" class="p-button-rounded">
+               <p-progressSpinner *ngIf="isClicked" [style]="{width: '30px', height: '30px'}"
+                  styleClass="custom-spinner" strokeWidth="8" fill="#EEEEEE" animationDuration=".5s">
+               </p-progressSpinner>
+            </button>
+         </div>
+      </form>
+      <br><br><br>
+      <div class="p-field p-col-12 p-md-4">
+         <span class="p-float-label">
+            <span style="color: #e638e0; cursor: pointer;"> Not a member?</span>
+            <a (click)="isSignup()">Signup
+               now</a>
+         </span>
+      </div>
+   </div>
+</div>
+<!--Login form ends here-->
+
+
+
+
+
+
+<!--Signup Page UI Starts Form here-->
+<div class="section" data-aos="zoom-in" data-aos-delay="500" data-aos-offset="200px" data-aos-easing="ease-in"
+   *ngIf="show.signupComponent">
+
+   <p-image src="/assets/sFQnJ.jpg" alt="Image" width="690" [preview]="true"></p-image>
+
+   <div class="login-wrap">
+      <div class="icon" style="padding-top: 9px;">
+         <span class="fa fa-user-o"></span>
+      </div>
+      <h3 class="text-center mb-4">Create New Account</h3>
+
+      <br><br><br>
+      <!--form section-->
+      <form [formGroup]="accountForm">
+         <div class="p-fluid p-grid">
+            <div class="p-fluid p-grid">
+               <div class="p-field p-col-12 p-md-4">
+                  <span class="p-float-label">
+                     <i class="pi pi-user" style="font-size: 13px; font-weight: 700; color: #8d448b;"></i>
+                     &nbsp;
+                     <input autofocus autocomplete="off" class="p-inputtext-sm" placeholder="Enter your email"
+                        type="text" id="inputtext" pInputText formControlName="username" />
+
+                  </span>
+               </div>
+            </div>
+            <br><br>
+            <div class="p-fluid p-grid">
+               <div class="p-field p-col-12 p-md-4">
+                  <span class="p-float-label">
+                     <i class="pi pi-lock" style="font-size: 13px; color: #8d448b; font-weight: 700;"></i>
+                     &nbsp;
+                     <input #password autofocus autocomplete="off" class="p-inputtext-sm" placeholder="Password"
+                        type="password" id="inputtext" pInputText formControlName="pass" />
+
+                  </span>
+               </div>
+            </div>
+         </div>
+         <br><br>
+         <!--Button section-->
+         <div class="btn">
+            <button (click)="signUp()" pButton type="button" label="Sign up"
+               [disabled]="accountForm && !accountForm.valid" class="p-button-rounded">
+               <p-progressSpinner *ngIf="isClicked" [style]="{width: '30px', height: '30px'}"
+                  styleClass="custom-spinner" strokeWidth="8" fill="#EEEEEE" animationDuration=".5s">
+               </p-progressSpinner>
+            </button>
+         </div>
+      </form>
+      <br><br>
+      <div class="p-field p-col-12 p-md-4">
+         <span class="p-footer">
+            <span style="color: #e638e0; cursor: pointer; margin-left: 10%;">Already have a account!</span>
+            <a (click)="isSignin()">Login
+               now</a>
+         </span>
+      </div>
+   </div>
+</div>
+<!--Ends here-->
