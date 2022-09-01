@@ -1,5 +1,5 @@
-import { UserDataModel } from './prime.model';
+// import { UserDataModel } from './prime.model';
 
-export interface SharedState {
-  userDetails: any;
-}
+// export interface SharedState {
+//   userDetails: any;
+// }
