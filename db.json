@@ -19,16 +19,6 @@
         "name": "Pune",
         "code": "PUN"
       }
-    },
-    {
-      "id": "56",
-      "name": "Shreya arole",
-      "email": "Shreya@gmail.com",
-      "address": "Faridabad",
-      "dropdown": {
-        "name": "Pune",
-        "code": "PUN"
-      }
     }
   ],
   "comments": [],

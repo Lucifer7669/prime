@@ -42,7 +42,6 @@ import { TabViewModule } from 'primeng/tabview';
 import { HeaderComponent } from './header/header.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { appReducer } from './store/app.state';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +53,6 @@ import { appReducer } from './store/app.state';
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
     EffectsModule.forRoot([]),
-    StoreModule.forRoot(appReducer),
     AngularFireDatabaseModule,
     AngularFirestoreModule,
     BrowserModule,
