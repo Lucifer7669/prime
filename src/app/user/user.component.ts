@@ -35,7 +35,7 @@ export class UserComponent implements OnInit {
   selectedCityCodes: string[];
   userData: UserData = new UserData();
   public isSignIn = false;
-  products: any;
+  products: UserData[] = [];
   @Output() isLogout = new EventEmitter<void>();
   constructor(
     private fb: FormBuilder,

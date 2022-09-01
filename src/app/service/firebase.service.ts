@@ -4,7 +4,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { UserList } from '../userdata.model';
+import { UserData, UserList } from '../userdata.model';
 
 @Injectable({
   providedIn: 'root',
@@ -60,7 +60,7 @@ export class FirebaseService {
   }
 
   getUserData() {
-    return this.http.get('http://localhost:3000/posts').pipe(
+    return this.http.get<UserData[]>('http://localhost:3000/posts').pipe(
       map((res) => {
         debugger;
         return res;
